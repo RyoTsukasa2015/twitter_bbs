@@ -13,8 +13,8 @@ if (!empty($_POST)){
 	if($_POST['email']==''){
 		$error['email'] ='blank';
 	}
-//パスワードが４文字以下であったかどうかを確認している。
-if (strlen($_POST['password'] ) < 4) {
+	//パスワードが４文字以下であったかどうかを確認している。
+	if (strlen($_POST['password'] ) < 4) {
 		$error['password'] ='length';
 	}
 
@@ -33,8 +33,8 @@ if (strlen($_POST['password'] ) < 4) {
 	
 	//var_dump($error)
 	//VAR_dump()
-//エラー項目がなければ、正常だとみなしますということ。
-if (empty($error)) {
+	//エラー項目がなければ、正常だとみなしますということ。
+	if (empty($error)) {
 	//画面をアップロードする。date('YmdHis')のファイルをアップロードしているときの日時。例えば、20151104151539など。時間差を利用し誰のファイルかどうか区分したいため。
 	//$_FILESスーパーグローバル変数
 	$image = date('YmdHis') . $_FILES['image']['name'];
@@ -45,19 +45,19 @@ if (empty($error)) {
 	 //画面遷移。画面移動という意味。
 	 header('Location: check.php');
 	 exit();
-}
+	}
 
 }
 
 //書き直し
 if($_REQUEST['action']== 'rewrite'){
-		$POST = $_SESSION['join'];
-		$error['rewrite']= true;
-		}else{
-			$_POST['name'] ='';
-			$_POST['email'] ='';
-			$_POST['password'] ='';
-	}
+	$POST = $_SESSION['join'];
+	$error['rewrite']= true;
+}else{
+	$_POST['name'] ='';
+	$_POST['email'] ='';
+	$_POST['password'] ='';
+}
 ?>
 
 
